@@ -22,6 +22,9 @@ public enum Operator {
     }
 
     public static int getResult(String sign, int number1, int number2) {
+        if("/".equals(sign) && number2==0){
+            throw new IllegalArgumentException("0으로 나눌수 없습니다.");
+        }
         return getSign(sign).formula.apply(number1, number2);
     }
 }
