@@ -31,4 +31,33 @@ public class CalculatorTest {
         Assert.assertEquals(2,plusResult);
 
     }
+    @Test
+    public void mainTest(){
+        String text = "4 + 4 * 2";
+
+        Validation validation = new Validation();
+        validation.trimTextSizeCheck(text);
+        validation.textRegexCheck(text);
+
+        ArrayTransfer arrayTransfer = new ArrayTransfer();
+        Calculator calculator = new Calculator();
+        int[] numberArray = arrayTransfer.arrayTransferInteger(text);
+        String[] signArray = arrayTransfer.arrayTransferSign(text);
+
+        int calculationResult = 0;
+        for(int i = 0 ; i < signArray.length; i ++){
+            for(int j = i; j< i+1; j++){
+                calculationResult = calculator.calculation(signArray[i],numberArray[j],numberArray[j+1]);
+                numberArray[j+1]=calculationResult;
+
+            }
+        }
+
+        System.out.println(calculationResult);
+
+
+
+
+
+    }
 }
