@@ -6,7 +6,7 @@ public enum Operator {
     PLUS("+", (number1, number2) -> number1 + number2),
     SUBTRACT("-", (number1, number2) -> number1 - number2),
     MULTIPLY("*", (number1, number2) -> number1 * number2),
-    DIVISION("/", (number1, number2) -> number1 / number2);
+    DIVISION("/", (number1, number2) -> (int) number1 / number2);
 
     private String sign;
     private BiFunction<Integer, Integer, Integer> formula;
